@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -23,5 +24,14 @@ public class HelloServlet extends HttpServlet {
         out.flush();
         out.close();
     }
-    
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        BufferedReader reader = req.getReader();
+
+        ServletOutputStream out = resp.getOutputStream();
+        out.write("hello heroku".getBytes());
+        out.flush();
+        out.close();
+    }
 }
