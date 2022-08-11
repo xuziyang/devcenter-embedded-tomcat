@@ -15,6 +15,7 @@ public class HttpPostClient {
         out.write("Content-Type: application/x-www-form-urlencoded\r\n".getBytes());
         out.write("Host: 127.0.0.1\r\n".getBytes());
         out.write("Content-Length: 8\r\n\r\n".getBytes());
+        out.flush();
         out.write("name=xzy".getBytes());
         out.flush();
 
